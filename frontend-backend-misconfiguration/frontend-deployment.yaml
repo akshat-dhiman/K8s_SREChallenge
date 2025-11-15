@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - name: frontend
+        image: nginx:latest
+        env:
+        - name: BACKEND_URL
+          value: "http://backend-service:5000" 
+
+        volumeMounts:
+        - name: workdir
+          mountPath: /workdir
+        - name: frontend-html
+          mountPath: /config
+
+        command: ["/bin/sh"]
+        args: ["/config/start.sh"]
+
+      volumes:
+      - name: workdir
+        emptyDir: {}   # writable folder
+      - name: frontend-html
+        configMap:
+          name: frontend-html
