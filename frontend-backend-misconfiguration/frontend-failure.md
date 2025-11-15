@@ -34,7 +34,7 @@ Error calling backend: TypeError: Failed to fetch
 
 ---
 
-# 🔥 Root Cause (Frontend)
+# Root Cause (Frontend)
 
 The frontend container **never created `index.html`**.
 
@@ -47,7 +47,7 @@ Here’s what caused it.
 
 ---
 
-# 🚨 Problem 1: `start.sh` was inside a read-only nginx directory
+# Problem 1: `start.sh` was inside a read-only nginx directory
 
 I mounted your ConfigMap into:
 
