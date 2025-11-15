@@ -197,5 +197,5 @@ Backend says: Hello from backend
 
 # Result
 
-We now have a working **frontend + backend** Kubernetes setup with:
+We now have a working **frontend + backend** Kubernetes setup
 
