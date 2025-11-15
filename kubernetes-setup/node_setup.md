@@ -106,4 +106,4 @@ In this section we will configure the nodes and install prerequisites such as th
     EOF
     ```
 
-Next: [Control Plane setup](./05-controlplane.md)
+Next: [Control Plane setup](./controlplane_setup.md)
