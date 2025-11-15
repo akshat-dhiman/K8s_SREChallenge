@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: frontend-html
+data:
+  index.html: |
+    <html>
+      <body>
+        <h1>Frontend App</h1>
+        <p>Backend says:</p>
+        <div id="result"></div>
+        <script>
+          fetch("http://backend-service:5000")
+            .then(response => response.text())
+            .then(data => document.getElementById("result").innerHTML = data)
+            .catch(err => document.getElementById("result").innerHTML = "Error calling backend");
+        </script>
+      </body>
+    </html>
